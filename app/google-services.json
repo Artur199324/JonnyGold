@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "632010874132",
+    "project_id": "jonny-gold",
+    "storage_bucket": "jonny-gold.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632010874132:android:5d2c10033d550243f3f601",
+        "android_client_info": {
+          "package_name": "com.game.colorroll"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632010874132-sb0p3cujlaqg4k1daovbvlmbs7o52ru7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ4ZrR4IkzykYIqP7-hECbS7UF80HpFMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632010874132-sb0p3cujlaqg4k1daovbvlmbs7o52ru7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
