@@ -20,6 +20,9 @@ public class SettingsActivityJg extends AppCompatActivity {
     CheckBox checkBoxS1, checkBoxS2, checkBoxS3;
     ImageView imageViewP1, imageViewP2, imageViewP3;
     ImageView imageViewS1, imageViewS2, imageViewS3;
+    boolean hh = false;
+    boolean nn = false;
+    boolean jj = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,20 +54,52 @@ public class SettingsActivityJg extends AppCompatActivity {
         imageViewP1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                jj = true;
+                if (nn){
+                    viewModJg.mediaStop2();
+                    nn = false;
+                }
+
+                if (hh){
+                    viewModJg.mediaStop3();
+                    hh = false;
+                }
                 viewModJg.mediaPlay1(SettingsActivityJg.this);
+
+
             }
         });
 
         imageViewP2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                nn = true;
                 viewModJg.mediaPlay2(SettingsActivityJg.this);
+                if (jj){
+                    viewModJg.mediaStop1();
+                    jj = false;
+                }
+
+                if (hh){
+                    viewModJg.mediaStop3();
+                    hh = false;
+                }
             }
         });
         imageViewP3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hh = true;
                 viewModJg.mediaPlay3(SettingsActivityJg.this);
+                if (jj){
+                    viewModJg.mediaStop1();
+                    jj = false;
+                }
+
+                if (nn){
+                    viewModJg.mediaStop2();
+                    nn = false;
+                }
             }
         });
 

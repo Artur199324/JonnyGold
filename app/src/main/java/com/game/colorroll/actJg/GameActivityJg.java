@@ -134,7 +134,7 @@ public class GameActivityJg extends AppCompatActivity {
 
     public void creationElementJg() {
         ImageView imageViewElem = new ImageView(this);
-        ConstraintLayout.LayoutParams constraintsElem = new ConstraintLayout.LayoutParams(display.getWidth() / 10, display.getWidth() / 10);
+        ConstraintLayout.LayoutParams constraintsElem = new ConstraintLayout.LayoutParams(display.getWidth() / 15, display.getWidth() / 15);
         consAj.addView(imageViewElem);
         imageViewElem.setLayoutParams(constraintsElem);
         viewModJg.crElement(display, imageViewElem);

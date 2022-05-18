@@ -22,8 +22,8 @@ public class CreationElementJg {
     }
 
     public void createElementJg() {
-        imageViewElem.setX(rndjg(0, w - imageViewElem.getWidth()));
-        imageViewElem.setY(rndjg(0, h - imageViewElem.getHeight()));
+        imageViewElem.setX(rndjg(0, w - (imageViewElem.getWidth()+ 200)));
+        imageViewElem.setY(rndjg(0, h - (imageViewElem.getHeight()+200)));
     }
 
     public void randomImageJG() {
