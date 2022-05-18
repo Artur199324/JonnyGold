@@ -58,7 +58,6 @@ public class StartActivityJG extends AppCompatActivity {
     public static boolean h = false;
     boolean hh = false;
     WebView webViewFullAppJG;
-
     String dd;
 
     @Override
@@ -73,6 +72,8 @@ public class StartActivityJG extends AppCompatActivity {
         buttonCloJG = findViewById(R.id.buttonCloJG);
         buttonsettingsJG = findViewById(R.id.buttonsettingsJG);
         buttonrecordJG = findViewById(R.id.buttonrecordJG);
+        viewModJg.media(this);
+        viewModJg.stopMediaJG();
         viewModJg.setButtonJG(this, buttonStJG, buttonRulJG, buttonCloJG, buttonsettingsJG, buttonrecordJG);
         image1 = findViewById(R.id.image1);
         image2 = findViewById(R.id.image2);
@@ -157,16 +158,17 @@ public class StartActivityJG extends AppCompatActivity {
     }
 
     public void oneJG() {
+
         OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
         OneSignal.initWithContext(getApplicationContext());
         OneSignal.setAppId("cb0bc156-2774-43b0-ac6b-7d370c3250c1");
-
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     AIDJG = AdvertisingIdClient.getAdvertisingIdInfo(getApplicationContext()).getId();
-                    Log.d("weq", AIDJG);
+                    OneSignal.setExternalUserId(AIDJG);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (GooglePlayServicesNotAvailableException e) {
@@ -178,6 +180,8 @@ public class StartActivityJG extends AppCompatActivity {
         }).start();
 
         apps_idJG = AppsFlyerLib.getInstance().getAppsFlyerUID(getApplicationContext());
+
+
     }
 
     public String decodeJG(String hhh) {
@@ -188,15 +192,15 @@ public class StartActivityJG extends AppCompatActivity {
 
 
     public void appJG() {
-        Log.d("weq", "1");
+
         AppsFlyerLib.getInstance().init("aPDypBN7xA4HAc4TAD2AUL", new AppsFlyerConversionListener() {
             @Override
             public void onConversionDataSuccess(Map<String, Object> map) {
-                Log.d("weq", "22");
+
                 af_statusJG = map.get(decodeJG("MFTF643UMF2HK4Y=")).toString();
                 Log.d("weq", map.get(decodeJG("MFTF643UMF2HK4Y=")).toString());
                 if (af_statusJG.equals(decodeJG("JZXW4LLPOJTWC3TJMM======"))) {
-                    Log.d("weq", af_statusJG);
+
                     try {
                         campaignJG = map.get(decodeJG("MNQW24DBNFTW4===")).toString();
                     } catch (Exception e) {
@@ -254,7 +258,6 @@ public class StartActivityJG extends AppCompatActivity {
 
                     String[] csaaa = appLinkData.getTargetUri().toString().split("://");
                     deepJG = csaaa[1];
-                    Log.d("weq", "dep");
                     parseJG(deepJG);
 
                 } else {
@@ -288,7 +291,7 @@ public class StartActivityJG extends AppCompatActivity {
             hh = true;
             dd = fireJG.getUrlJG() + loadJG;
             viewModJg.saveJ(dd);
-            Log.d("weq", dd);
+
         }
     }
 
@@ -329,7 +332,7 @@ public class StartActivityJG extends AppCompatActivity {
         }
         dd = fireJG.getUrlJG() + loadJG;
         viewModJg.saveJ(dd);
-        Log.d("weq", dd);
+
         hh = true;
 
     }
@@ -440,7 +443,7 @@ public class StartActivityJG extends AppCompatActivity {
                 if (url.contains(decodeJG("MVZHE33SHVQXA4DBMZAXGM3G")) || url.contains(decodeJG("MRUXGYLCNRSWILTIORWWY==="))) {
                     webViewFullAppJG.setVisibility(View.INVISIBLE);
                     h = true;
-                    Log.d("weq", "bot");
+
                 }
             }
         });

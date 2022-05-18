@@ -155,6 +155,20 @@ public class SettingsActivityJg extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        viewModJg.stopMediaJG();
+        if (jj){
+            viewModJg.mediaStop1();
+            jj = false;
+        }
+        if (nn){
+            viewModJg.mediaStop2();
+            nn = false;
+        }
+
+        if (hh){
+            viewModJg.mediaStop3();
+            hh = false;
+        }
         if (dj) {
             startActivity(new Intent(getApplicationContext(), GameActivityJg.class));
             finishAffinity();

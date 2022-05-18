@@ -69,6 +69,7 @@ public class GameActivityJg extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), SettingsActivityJg.class));
                 finishAffinity();
+                viewModJg.stopMediaJG();
                 dj = true;
             }
         });

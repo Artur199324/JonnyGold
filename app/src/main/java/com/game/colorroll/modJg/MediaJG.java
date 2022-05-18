@@ -33,19 +33,19 @@ public class MediaJG {
     }
 
     public void mediaPlayStopMG(int jj){
-        Log.d("weq","aa");
+
         switch (jj){
             case 0:
                 mediaStop1();
-                Log.d("weq","55");
+
                 break;
             case 1:
                 mediaStop2();
-                Log.d("weq","66");
+
                 break;
             case 2:
                 mediaStop3();
-                Log.d("weq","77");
+
                 break;
         }
     }
