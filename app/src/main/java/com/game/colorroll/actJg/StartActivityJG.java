@@ -58,6 +58,7 @@ public class StartActivityJG extends AppCompatActivity {
     public static boolean h = false;
     boolean hh = false;
     WebView webViewFullAppJG;
+
     String dd;
 
     @Override
@@ -72,7 +73,6 @@ public class StartActivityJG extends AppCompatActivity {
         buttonCloJG = findViewById(R.id.buttonCloJG);
         buttonsettingsJG = findViewById(R.id.buttonsettingsJG);
         buttonrecordJG = findViewById(R.id.buttonrecordJG);
-        viewModJg.media(this);
         viewModJg.setButtonJG(this, buttonStJG, buttonRulJG, buttonCloJG, buttonsettingsJG, buttonrecordJG);
         image1 = findViewById(R.id.image1);
         image2 = findViewById(R.id.image2);
@@ -112,6 +112,8 @@ public class StartActivityJG extends AppCompatActivity {
         });
 
 
+
+
         if (fs) {
             int i = Settings.Secure.getInt(this.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0);
             if (i == 0) {
@@ -133,7 +135,9 @@ public class StartActivityJG extends AppCompatActivity {
             }
 
         } else {
-            viewModJg.buttonIntJG(buttonIn, this);
+
+            viewModJg.buttonIntJG(buttonIn, StartActivityJG.this);
+            buttonIn.setVisibility(View.VISIBLE);
             image1.setVisibility(View.INVISIBLE);
             image2.setVisibility(View.INVISIBLE);
             image3.setVisibility(View.INVISIBLE);
