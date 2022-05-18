@@ -74,7 +74,6 @@ public class MediaJG {
 
     public void mediaStop2(){
         mediaPlayer2.stop();
-        Log.d("weq","aa");
     }
     public void mediaStop3(){
         mediaPlayer3.stop();

@@ -31,6 +31,7 @@ public class MovesnackJC {
         this.h = h;
         this.imgSnake = imageView;
         handler = new Handler();
+
     }
 
     public void setMediaJG(MediaJG mediaJG) {
@@ -142,7 +143,7 @@ public class MovesnackJC {
                        textViewRE.setVisibility(View.VISIBLE);
                        mediaJG.mediaPlayStopMG(jj);
                        imgSnake.setVisibility(View.INVISIBLE);
-                        aa =0;
+                       aa =0;
                         if (st){
                             for (int i = 0; i < arrayListJg.size(); i++) {
                                 ImageView imageView = arrayListJg.get(i);
@@ -157,7 +158,6 @@ public class MovesnackJC {
                     if (st){
                     for (int i = 0; i < arrayListJg.size(); i++) {
                         ImageView imageView = arrayListJg.get(i);
-
 
                         aa += imgSnake.getWidth();
 

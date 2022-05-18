@@ -2,6 +2,7 @@ package com.game.colorroll.actJg;
 
 import static com.game.colorroll.actJg.StartActivityJG.viewModJg;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProvider;
@@ -30,10 +31,11 @@ public class GameActivityJg extends AppCompatActivity {
     private ImageView imgSnake, imageViewSeting;
     private ConstraintLayout consAj;
     private Display display;
-    private ArrayList<ImageView> arrayListJg;
+    ArrayList<ImageView> arrayListJg;
     private TextView textViewGO, textViewRE, textViewPoi;
     private int count = 0;
     public static boolean dj = false;
+    public static ArrayList<ImageView> arrayList;
 
     @Override
     public void onBackPressed() {
@@ -58,6 +60,7 @@ public class GameActivityJg extends AppCompatActivity {
         display = getWindowManager().getDefaultDisplay();
         viewModJg.moveJk(display, imgSnake);
         arrayListJg = new ArrayList<>();
+        arrayList = new ArrayList<>();
         creationElementJg();
         viewModJg.visibleJg(textViewGO, textViewRE);
         viewModJg.media(this);
@@ -72,6 +75,8 @@ public class GameActivityJg extends AppCompatActivity {
         textViewRE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 startActivity(new Intent(getApplicationContext(), GameActivityJg.class));
                 finishAffinity();
 

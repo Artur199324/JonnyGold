@@ -1,5 +1,7 @@
 package com.game.colorroll.viewmodJg;
 
+import static com.game.colorroll.actJg.GameActivityJg.arrayList;
+
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -28,7 +30,7 @@ public class ViewModJg extends AndroidViewModel {
 
     MovesnackJC movesnackJC;
     CreationElementJg creationElementJg;
-    ArrayList<ImageView> arrayList;
+
     MediaJG mediaJG;
     SaveJg saveJg;
     ButtonJG buttonJG;
@@ -38,7 +40,7 @@ public class ViewModJg extends AndroidViewModel {
 
     public ViewModJg(@NonNull Application application) {
         super(application);
-        arrayList = new ArrayList<>();
+
         saveJg = new SaveJg();
         buttonJG= new ButtonJG();
         moveProgJG = new MoveProgJG();
